@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movind Slider</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .main{
+            width: 100%;
+            height: 550px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            /* border: 1px solid #000; */
+        }
+       
+        .back{
+            font-size: 30px;
+            color: #000;
+            cursor: pointer;
+           
+            left: 5%;
+        }
+        .next{
+
+            font-size: 30px;
+            color: #000;
+            cursor: pointer;
+            color: red;
+            right: 5%;
+        }
+        .slider_holder{
+            width: 1000px;
+            height:500px ;
+            align-self: center;
+            border: 1px solid #000;
+            overflow: hidden;
+        }
+        .slider{
+            width: 400%;
+            height:500px ;
+            display: flex;
+            /* justify-content: center; */
+            transition: 0.5s ;
+            border: 1px solid #000;
+        }
+        .slide_1{
+            width: 100%;
+            height: 100%;
+            background-color: blue;
+        }
+        .slide_2{
+            width: 100%;
+            height: 100%;
+            background-color: green;
+        }
+        .slide_3{
+            width: 100%;
+
+            height: 100%;
+            background-color: yellowgreen;
+        }
+        .slide_4{
+            width: 100%;
+
+            height: 100%;
+            background-color: grey;
+        }
+        .btn1{
+          width: 100px;
+          height: 40px;
+          align-self: center;
+          font-size: 20px;
+          border: none;
+          background-color: transparent;
+        }
+         .btn2{
+          width: 100px;
+          height: 40px;
+          align-self: center;
+          font-size: 20px;
+          border: none;
+          background-color: transparent;
+        }
+       
+        .get_js{
+        
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 100px;
+            color: white;
+        }
+        .active{
+            opacity: 1;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="main">
+     <button class="btn1">
+       <i class="fa-solid fa-circle-chevron-left"></i>
+    </button>
+    <div class="slider_holder">
+      
+      <div class="slider">
+        <div class="slide_1 get_js">1</div>
+        <div class="slide_2 get_js">2</div>
+        <div class="slide_3 get_js">3</div>
+        <div class="slide_4 get_js">4</div>
+        
+        
+      </div>
+    </div>
+    <button class="btn2">
+       <i class="fa-solid fa-circle-chevron-right"></i>
+     </button>
+    
+    </div>
+    <script>
+        let btn1 = document.querySelector(".btn1")
+        let btn2 = document.querySelector(".btn2")
+        let slides = document.querySelector(".slider")
+        let count = 0
+
+        
+        btn1.addEventListener("click", ()=>{
+            count--
+            if (count<0) {
+                count= 3
+            }
+            slides.style.marginLeft = `-${count*100}%`
+        })
+        btn2.addEventListener("click", function(){
+            count++
+            if (count >3) {
+                count = 0
+            }
+            slides.style.marginLeft = `-${count*100}%`
+        })
+        
+
+       
+    </script>
+</body>
+</html>
